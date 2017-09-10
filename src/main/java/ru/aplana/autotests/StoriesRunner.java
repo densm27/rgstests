@@ -1,3 +1,5 @@
+package ru.aplana.autotests;
+
 import net.serenitybdd.jbehave.SerenityStepFactory;
 import net.serenitybdd.jbehave.SerenityStories;
 import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
@@ -46,7 +48,7 @@ public class StoriesRunner extends SerenityStories {
         return ThucydidesWebDriverSupport.getDriver();
     }
 
-    @BeforeStories
+    @BeforeScenario( uponType = ScenarioType.ANY)
     public void startScenario(){
         getWebDriver() .get(properties.getProperty("app.url"));
         getWebDriver() .manage().window().maximize();
@@ -56,7 +58,7 @@ public class StoriesRunner extends SerenityStories {
 
     @AfterStories
     public void afterMethod(){
-        getWebDriver() .quit();
+        getWebDriver().quit();
     }
 
 }
