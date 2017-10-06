@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 /**
  * Created by Maria on 07.09.2017.
@@ -110,7 +110,7 @@ public class SendAppPage extends BasePage {
     public void checkFieldErrorMessage(String field, String errorMessage){
         String xpath = "//*[text()='"+field+"']/..//*[@class='validation-error']";
         String actualValue = driver.findElement(By.xpath(xpath)).getText();
-        Assert.assertTrue(actualValue.contains(errorMessage),
-                String.format("Получено значение [%s]. Ожидалось [%s]", actualValue, errorMessage));
+        Assert.assertTrue(String.format("Получено значение [%s]. Ожидалось [%s]", actualValue, errorMessage),
+                actualValue.contains(errorMessage));
     }
 }
