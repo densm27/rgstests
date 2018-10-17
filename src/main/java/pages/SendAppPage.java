@@ -43,6 +43,10 @@ public class SendAppPage extends BasePage {
     @FindBy(name = "Region")
     WebElement region;
 
+    @FindBy(css = "input.checkbox")
+    public WebElement checkbox;
+
+
     @FindBy(xpath = "//button[contains(text(),'Отправить')]")
     public WebElement sendButton;
 

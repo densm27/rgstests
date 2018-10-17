@@ -37,7 +37,7 @@ public class MyRefactoringTest extends BaseTest {
         assertTrue(String.format("Заголовок равен [%s]. Ожидалось - [%s]",
                 actualTitle, expectedTitle), actualTitle.contains(expectedTitle));
 
-
+        sendAppPage.checkbox.click();
         sendAppPage.fillField("Фамилия", "Иванов");
         sendAppPage.fillField("Имя", "Иван");
         sendAppPage.fillField("Отчество", "Иванович");
