@@ -108,9 +108,9 @@ public class SendAppPage extends BasePage {
 
 
     public void checkFieldErrorMessage(String field, String errorMessage){
-        String xpath = "//*[text()='"+field+"']/..//*[@class='validation-error']";
+        String xpath = "//*[text()='"+field+"']/..//*[@class='validation-error-text']";
         String actualValue = driver.findElement(By.xpath(xpath)).getText();
-        Assert.assertTrue(String.format("Получено значение [%s]. Ожидалось [%s]", actualValue, errorMessage),
-                actualValue.contains(errorMessage));
+        org.junit.Assert.assertTrue(String.format("Получено значение [%s]. Ожидалось [%s]", actualValue, errorMessage),
+            actualValue.contains(errorMessage));
     }
 }

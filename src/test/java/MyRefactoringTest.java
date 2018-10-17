@@ -41,7 +41,8 @@ public class MyRefactoringTest extends BaseTest {
         sendAppPage.fillField("Фамилия", "Иванов");
         sendAppPage.fillField("Имя", "Иван");
         sendAppPage.fillField("Отчество", "Иванович");
-        sendAppPage.fillField("Эл. почта", "222222ыыыыы");
+        sendAppPage.fillField("Телефон", "9191111112");
+        sendAppPage.fillField("Эл. почта", "teststststs");
         sendAppPage.fillField("Комментарии", "test");
         sendAppPage.fillField("Регион", "Москва");
 
