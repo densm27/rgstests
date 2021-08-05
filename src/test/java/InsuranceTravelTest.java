@@ -1,5 +1,6 @@
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,6 +32,7 @@ public class InsuranceTravelTest {
 		driver.manage().window().maximize();
 	}
 
+//	@Ignore
 	@Test
 	public void testInsurance() throws Exception {
 		driver.get(baseUrl + "/");

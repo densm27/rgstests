@@ -28,8 +28,10 @@ public class InsuranceTest {
   @Test
   public void testInsurance() throws Exception {
     driver.get(baseUrl + "/");
-    driver.findElement(By.xpath("//ol[contains(@class,'rgs-menu')]/li/*[contains(text(),'Страхование')]")).click();
-    driver.findElement(By.xpath("//*[contains(text(),'ДМС')]")).click();
+    driver.findElement(By.xpath("//ol[contains(@class,'rgs-menu pull-left')]//a[@data-toggle='dropdown']")).click();
+    driver.findElement(By.xpath("//ol[contains(@class,'rgs-menu pull-left')]//form//a[normalize-space(.)='Здоровье'][@class='hidden-xs']")).click();
+
+    driver.findElement(By.xpath("//a[contains(.,'Добровольное медицинское страхование (ДМС)')]")).click();
 
     Wait<WebDriver> wait = new WebDriverWait(driver, 5, 1000);
     wait.until(ExpectedConditions.visibilityOf(
@@ -64,7 +66,7 @@ public class InsuranceTest {
     assertEquals("Москва",
             new Select(driver.findElement(By.name("Region"))).getAllSelectedOptions().get(0).getText());
     assertEquals("Введите адрес электронной почты",
-            driver.findElement(By.xpath("//*[text()='Эл. почта']/..//span[@class='validation-error-text']")).getText());
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Эл. почта']/..//span[@class='validation-error-text']"))).getText());
   }
 
   @After
