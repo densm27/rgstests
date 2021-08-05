@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.DMSPage;
+import pages.HealthInsurancePage;
 import pages.MainPage;
 import pages.SendAppPage;
 
@@ -26,8 +27,10 @@ public class MyRefactoringTest extends BaseTest {
     public void testInsurance() throws Exception {
         driver.get(baseUrl + "/");
         MainPage mainPage = new MainPage(driver);
-        mainPage.selectMenuItem("Страхование");
-        mainPage.selectInsuranceItem("ДМС");
+        mainPage.menuButton.click();
+        mainPage.selectMenuItem("Здоровье");
+
+        new HealthInsurancePage(driver).dmsLink.click();
 
         new DMSPage(driver).waitSendAppClickable();
 

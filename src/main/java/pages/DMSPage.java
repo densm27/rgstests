@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class DMSPage extends BasePage {
 
-    @FindBy(xpath = "//*[@class='page-header']/*")
+    @FindBy(xpath = "//*[@class='content-document-header']")
     public WebElement title;
 
     @FindBy(xpath = "//*[contains(text(),'Отправить заявку')][contains(@class,'btn')]")

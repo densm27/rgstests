@@ -112,9 +112,10 @@ public class SendAppPage extends BasePage {
 
 
     public void checkFieldErrorMessage(String field, String errorMessage){
-        String xpath = "//*[text()='"+field+"']/..//*[@class='validation-error-text']";
-        String actualValue = driver.findElement(By.xpath(xpath)).getText();
-        org.junit.Assert.assertTrue(String.format("Получено значение [%s]. Ожидалось [%s]", actualValue, errorMessage),
-            actualValue.contains(errorMessage));
+        String xpath = "//*[text()='"+field+"']/..//*[@class='validation-error']";
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        String actualValue = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getText();
+        Assert.assertTrue(String.format("Получено значение [%s]. Ожидалось [%s]", actualValue, errorMessage),
+                actualValue.contains(errorMessage));
     }
 }
